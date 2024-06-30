@@ -1,0 +1,51 @@
+python esg_investment_analysis.py
+
+ESG Data:
+      company  esg_score
+0      Apple       85.0
+1  Microsoft       70.0
+2     Google       90.0
+Stock Data:
+      company        date  close
+0      Apple  2023-01-01  100.0
+1      Apple  2023-02-01  105.0
+2      Apple  2023-03-01  110.0
+3      Apple  2023-04-01  115.0
+4  Microsoft  2023-01-01  150.0
+Top ESG Companies:
+ 2       Google
+0        Apple
+1    Microsoft
+Name: company, dtype: object
+ESG Portfolio Data:
+      company       date  close
+0      Apple 2023-01-01  100.0
+1      Apple 2023-02-01  105.0
+2      Apple 2023-03-01  110.0
+3      Apple 2023-04-01  115.0
+4  Microsoft 2023-01-01  150.0
+ESG Portfolio Returns:
+      company       date  close    return
+0      Apple 2023-01-01  100.0       NaN
+1      Apple 2023-02-01  105.0  0.050000
+2      Apple 2023-03-01  110.0  0.047619
+3      Apple 2023-04-01  115.0  0.045455
+4  Microsoft 2023-01-01  150.0       NaN
+ESG Returns:
+ date
+2023-01-01         NaN
+2023-02-01    0.044444
+2023-03-01    0.042499
+2023-04-01    0.040720
+Name: return, dtype: float64
+ESG Cumulative Returns:
+ date
+2023-02-01    0.044444
+2023-03-01    0.088832
+2023-04-01    0.133169
+Name: return, dtype: float64
+Performance Metrics:
+ESG Portfolio Mean Daily Return: 0.0426
+ESG Portfolio Volatility: 0.0019
+ESG Portfolio VaR (95% confidence): 0.0409
+ESG Portfolio Stress Test (Max Daily Loss): 0.0407
