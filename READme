@@ -1,51 +1,73 @@
-python esg_investment_analysis.py
+# ESG Investment Analysis
 
-ESG Data:
-      company  esg_score
-0      Apple       85.0
-1  Microsoft       70.0
-2     Google       90.0
-Stock Data:
-      company        date  close
-0      Apple  2023-01-01  100.0
-1      Apple  2023-02-01  105.0
-2      Apple  2023-03-01  110.0
-3      Apple  2023-04-01  115.0
-4  Microsoft  2023-01-01  150.0
-Top ESG Companies:
- 2       Google
-0        Apple
-1    Microsoft
-Name: company, dtype: object
-ESG Portfolio Data:
-      company       date  close
-0      Apple 2023-01-01  100.0
-1      Apple 2023-02-01  105.0
-2      Apple 2023-03-01  110.0
-3      Apple 2023-04-01  115.0
-4  Microsoft 2023-01-01  150.0
-ESG Portfolio Returns:
-      company       date  close    return
-0      Apple 2023-01-01  100.0       NaN
-1      Apple 2023-02-01  105.0  0.050000
-2      Apple 2023-03-01  110.0  0.047619
-3      Apple 2023-04-01  115.0  0.045455
-4  Microsoft 2023-01-01  150.0       NaN
-ESG Returns:
- date
-2023-01-01         NaN
-2023-02-01    0.044444
-2023-03-01    0.042499
-2023-04-01    0.040720
-Name: return, dtype: float64
-ESG Cumulative Returns:
- date
-2023-02-01    0.044444
-2023-03-01    0.088832
-2023-04-01    0.133169
-Name: return, dtype: float64
-Performance Metrics:
-ESG Portfolio Mean Daily Return: 0.0426
-ESG Portfolio Volatility: 0.0019
-ESG Portfolio VaR (95% confidence): 0.0409
-ESG Portfolio Stress Test (Max Daily Loss): 0.0407
+A Python-based financial analysis project exploring how Environmental, Social, and Governance (ESG) scores can be incorporated into portfolio selection and performance evaluation.
+
+## Overview
+
+This project demonstrates an ESG-focused investment analysis workflow using sample company ESG scores and historical stock price data.
+
+The application extracts structured data from local HTML files, ranks companies by ESG score, constructs a sample portfolio, and evaluates returns and selected risk metrics.
+
+## Key Features
+
+- **Data Extraction:** Parse ESG scores and stock price tables using BeautifulSoup.
+- **ESG Ranking:** Normalize ESG scores and rank companies.
+- **Portfolio Construction:** Select companies based on ESG rankings.
+- **Performance Analysis:** Calculate periodic returns and cumulative returns.
+- **Risk Analysis:** Explore volatility, historical Value at Risk (VaR), and worst observed period returns.
+- **Visualization:** Generate charts of portfolio performance and return distributions.
+
+## Technologies
+
+Python, Pandas, NumPy, BeautifulSoup, Matplotlib, Seaborn, and SciPy.
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/cowboytrex/ESG-Investment-Analysis.git
+cd ESG-Investment-Analysis
+```
+
+Create a virtual environment and install the dependencies:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install pandas numpy matplotlib seaborn scipy beautifulsoup4
+```
+
+Run the analysis:
+
+```bash
+python esg_investment_analysis.py
+```
+
+## Methodology
+
+1. Extract sample ESG scores and stock prices.
+2. Clean and normalize the datasets.
+3. Rank companies according to ESG scores.
+4. Construct a portfolio from the selected companies.
+5. Calculate returns and exploratory risk metrics.
+6. Visualize the results.
+
+## Limitations
+
+The current version uses small, illustrative datasets rather than live market data. Results are intended for educational analysis and should not be interpreted as investment recommendations.
+
+The sample observations are monthly. Risk and return metrics must therefore be interpreted at the corresponding frequency.
+
+## Future Improvements
+
+- Support larger and more realistic datasets.
+- Add a non-ESG benchmark portfolio.
+- Implement configurable portfolio weights.
+- Add automated tests and data validation.
+- Export analysis results and charts.
+- Improve the statistical methodology for risk measurement.
+
+## Disclaimer
+
+This project is for educational and research purposes only and does not provide financial advice.
