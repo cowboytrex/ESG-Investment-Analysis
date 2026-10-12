@@ -2,42 +2,45 @@
 
 A Python-based financial analytics project exploring Environmental, Social, and Governance (ESG) investing, portfolio performance evaluation, and historical stock market trends.
 
-The repository contains two complementary financial analysis workflows:
-
-1. **ESG Investment Analysis** — An exploratory investment analysis using sample ESG scores and historical stock prices.
-2. **Canadian Bank Stock Performance Analysis** — A comparison of Canada's six major publicly traded banks using historical market data from 2020 to 2026.
+This repository combines two financial analysis workflows: an ESG-focused investment analysis and a historical stock performance comparison of Canada's six major banks.
 
 ## Project Overview
 
-This project demonstrates how Python can be used to collect, process, analyze, and visualize financial datasets.
+This project demonstrates how Python can be used to collect, process, analyze, and visualize financial datasets to better understand investment performance and financial risk.
 
-The original ESG analysis examines how sustainability-related scores can influence portfolio selection and evaluates investment returns and risk.
+The project consists of two components:
 
-The Canadian bank analysis extends the repository with real historical market data, automated data retrieval, monthly return calculations, and normalized stock performance comparisons.
+**1. ESG Investment Analysis**
+
+An exploratory analysis examining how ESG scores can be incorporated into portfolio selection and investment performance evaluation.
+
+**2. Canadian Bank Stock Performance Analysis (2020–2026)**
+
+A historical comparison of six major Canadian banks using real market data retrieved through Yahoo Finance. The analysis examines monthly returns and normalized stock performance.
 
 ## Key Features
 
-### 1. ESG Investment Analysis
+### ESG Investment Analysis
 
-- **Data Extraction:** Extract structured ESG scores and historical stock prices from local HTML files using BeautifulSoup.
-- **ESG Ranking:** Normalize ESG scores and rank companies based on sustainability-related metrics.
-- **Portfolio Construction:** Select companies using ESG-based ranking criteria.
+- **Data Extraction:** Extract ESG scores and stock price data from local HTML files using BeautifulSoup.
+- **ESG Ranking:** Normalize ESG scores and rank companies based on ESG-related metrics.
+- **Portfolio Construction:** Select companies according to ESG rankings.
 - **Return Analysis:** Calculate periodic and cumulative investment returns.
 - **Risk Evaluation:** Explore volatility, historical Value at Risk (VaR), and worst observed period returns.
-- **Visualization:** Generate portfolio performance charts and return distributions.
+- **Data Visualization:** Generate charts illustrating portfolio performance and return distributions.
 
-### 2. Canadian Bank Stock Performance Analysis
+### Canadian Bank Stock Performance Analysis
 
-- **Historical Market Data:** Retrieve daily adjusted stock prices using the Yahoo Finance data interface.
-- **Data Processing:** Clean historical prices and aggregate observations into monthly data.
+- **Historical Market Data:** Retrieve adjusted historical stock prices using yfinance.
+- **Data Processing:** Clean financial datasets and convert daily observations into monthly data.
 - **Performance Comparison:** Normalize stock prices to a common starting value of 100.
 - **Return Calculation:** Calculate monthly percentage returns.
-- **Financial Visualization:** Generate comparative performance charts using Matplotlib.
-- **Automated Workflow:** Download data, process prices, and export analytical results using Python.
+- **Financial Visualization:** Compare historical stock performance using Matplotlib.
+- **Automated Analysis:** Download, process, and visualize financial data through a reproducible Python workflow.
 
 ## Canadian Banks Analyzed
 
-| Bank | Ticker |
+| Bank | Stock Ticker |
 |---|---|
 | Royal Bank of Canada (RBC) | RY.TO |
 | Toronto-Dominion Bank (TD) | TD.TO |
@@ -46,19 +49,20 @@ The Canadian bank analysis extends the repository with real historical market da
 | Canadian Imperial Bank of Commerce (CIBC) | CM.TO |
 | National Bank of Canada | NA.TO |
 
-The analysis uses historical data beginning in January 2020, with the latest available observations determined by the data download date.
+The historical analysis covers January 2020 through the latest available observations in October 2026.
 
 ## Technologies Used
 
-**Programming Language:** Python
-
-**Data Analysis:** Pandas, NumPy, SciPy
-
-**Data Collection:** BeautifulSoup, yfinance
-
-**Data Visualization:** Matplotlib, Seaborn
-
-**Financial Analysis:** Historical returns, normalized performance, volatility, Value at Risk
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Pandas | Financial data processing and analysis |
+| NumPy | Numerical computations |
+| BeautifulSoup | HTML data extraction |
+| yfinance | Historical financial market data retrieval |
+| Matplotlib | Financial data visualization |
+| Seaborn | Statistical visualization |
+| SciPy | Statistical analysis |
 
 ## Project Structure
 
@@ -66,13 +70,15 @@ The analysis uses historical data beginning in January 2020, with the latest ava
 ESG-Investment-Analysis/
 ├── esg_investment_analysis.py
 ├── bank_analysis.py
+├── sample_stock.html
+├── stock_prices.csv
 ├── outputs/
 │   └── bank_performance.png
 ├── README.md
 └── .gitignore
 ```
 
-Additional source datasets and generated CSV files may be present depending on the workflow executed.
+Additional sample data files and generated CSV outputs may be present depending on the analysis performed.
 
 ## Getting Started
 
@@ -114,9 +120,9 @@ python -m pip install pandas numpy matplotlib seaborn scipy beautifulsoup4 yfina
 python esg_investment_analysis.py
 ```
 
-This workflow processes sample ESG and stock price data, evaluates a selected portfolio, and produces financial analysis results.
+This script processes the sample ESG and financial data, ranks companies, constructs a sample portfolio, and evaluates investment performance and selected risk metrics.
 
-Ensure the original sample input files are available in the locations expected by the script.
+Ensure the required sample files are available in the locations expected by the script.
 
 ### Run the Canadian Bank Stock Performance Analysis
 
@@ -124,80 +130,86 @@ Ensure the original sample input files are available in the locations expected b
 python bank_analysis.py
 ```
 
-This script:
+The script will:
 
-1. Downloads historical stock prices for Canada's six major banks.
-2. Processes the daily adjusted closing prices.
-3. Aggregates the data into monthly observations.
-4. Calculates monthly returns.
-5. Normalizes historical prices to a common starting value of 100.
-6. Generates a comparative stock performance visualization.
+1. Download historical adjusted closing prices for six Canadian banks.
+2. Process and organize the daily stock price data.
+3. Aggregate prices into month-end observations.
+4. Calculate monthly stock returns.
+5. Normalize prices to a common starting value of 100.
+6. Generate a comparative stock performance chart.
 
-The resulting chart is saved to:
+The visualization is saved to:
 
-```text
-outputs/bank_performance.png
-```
+`outputs/bank_performance.png`
 
-The script may also export processed financial datasets as CSV files.
-
-## Canadian Bank Performance Visualization
+## Canadian Bank Stock Performance Visualization
 
 ![Canadian Bank Stock Performance](outputs/bank_performance.png)
 
-The chart compares the historical performance of six Canadian banks, normalized to a starting value of 100.
+The chart illustrates the relative historical performance of Canada's six major banks between 2020 and 2026.
 
-This allows relative price growth to be compared across banks regardless of their original share prices.
+Stock prices are normalized to a starting value of 100, allowing comparisons across companies with different initial share prices.
 
-The historical prices are adjusted for corporate actions and dividends according to the data provider's adjustment methodology.
+A normalized value of 150 represents a 50% increase relative to the starting observation.
+
+The chart is based on historical adjusted stock prices and does not represent a prediction of future performance.
 
 ## Methodology
 
 ### ESG Investment Analysis
 
-1. Extract sample ESG scores and historical stock price data.
+The ESG analysis follows six primary steps:
+
+1. Extract sample ESG scores and historical stock prices.
 2. Clean and normalize the datasets.
 3. Rank companies according to ESG scores.
-4. Construct a sample ESG-focused portfolio.
-5. Calculate portfolio returns and exploratory risk metrics.
-6. Visualize portfolio performance and return distributions.
+4. Construct a sample portfolio using ESG-based selection criteria.
+5. Calculate periodic returns and exploratory risk metrics.
+6. Visualize investment performance and risk characteristics.
 
 ### Canadian Bank Stock Performance Analysis
 
-1. Retrieve historical daily market data using yfinance.
-2. Extract adjusted closing prices for each bank.
-3. Convert daily prices into month-end observations.
-4. Calculate monthly percentage returns.
-5. Normalize prices using the first available month-end observation.
-6. Plot and compare long-term stock performance.
+The Canadian bank analysis follows a historical time-series workflow:
 
-**Normalized performance formula:**
+1. Retrieve daily market data using yfinance.
+2. Extract adjusted closing prices for each bank.
+3. Resample daily data into month-end prices.
+4. Calculate monthly percentage returns.
+5. Normalize prices relative to the first available month-end observation.
+6. Compare historical performance through visualization.
+
+**Normalized Stock Performance**
 
 Normalized Price = (Current Adjusted Price / Initial Adjusted Price) × 100
 
-A normalized value of 150 indicates a 50% increase relative to the starting observation.
+**Monthly Return**
+
+Monthly Return = (Current Month Price / Previous Month Price) − 1
+
+These calculations provide a consistent framework for comparing stock performance over time.
 
 ## Limitations
 
-- The ESG analysis uses illustrative datasets rather than comprehensive, independently verified ESG ratings.
-- The Canadian bank analysis uses historical market data and does not forecast future returns.
-- Historical performance is not a guarantee of future results.
-- The bank analysis does not incorporate ESG ratings or measure the relationship between ESG scores and stock returns.
-- Market data availability and adjustment methodologies depend on the external data provider.
-- Risk metrics must be interpreted using the frequency of the underlying observations.
+- The ESG component uses illustrative datasets rather than comprehensive verified ESG ratings.
+- The Canadian bank component uses historical stock prices and does not forecast future performance.
+- The Canadian bank analysis does not currently incorporate ESG ratings.
+- Historical returns do not guarantee future investment results.
+- Data quality and availability depend on the external market data provider.
+- Risk and return metrics must be interpreted according to the frequency of the underlying observations.
 
 ## Future Improvements
 
-- Integrate verified ESG ratings with real financial market data.
-- Compare ESG-focused portfolios against traditional benchmarks.
-- Implement configurable portfolio weights and rebalancing strategies.
-- Add Sharpe ratio, maximum drawdown, and additional risk-adjusted performance metrics.
-- Expand the analysis to other financial sectors and geographic markets.
-- Add automated testing, input validation, and reproducible data pipelines.
-- Develop an interactive financial analytics dashboard.
+- **ESG Data Integration:** Incorporate larger, verified ESG datasets alongside real financial market data.
+- **Benchmark Comparison:** Compare ESG-focused portfolios against traditional market benchmarks.
+- **Risk-Adjusted Performance:** Add Sharpe ratio, maximum drawdown, and other financial risk metrics.
+- **Portfolio Optimization:** Implement configurable portfolio weights and allocation strategies.
+- **Expanded Market Coverage:** Analyze additional sectors, financial institutions, and geographic markets.
+- **Interactive Dashboard:** Develop an interactive dashboard for exploring financial performance.
+- **Automated Testing:** Add data validation, unit tests, and reproducible analysis pipelines.
 
 ## Disclaimer
 
 This project is intended for educational, research, and portfolio demonstration purposes only.
 
-It does not constitute financial or investment advice.
+The analyses and visualizations do not constitute financial or investment advice.
