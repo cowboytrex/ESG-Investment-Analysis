@@ -1,0 +1,1 @@
+printf "venv/\n.venv/\n__pycache__/\n.ipynb_checkpoints/\n.env\n" >> .gitignore
